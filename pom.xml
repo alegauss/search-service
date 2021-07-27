@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>search-service2</artifactId>
+	<version>2.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>Search Service</name>
+	<description>Search Service API</description>
+
+	<organization>
+		<name>SEBRAE NACIONAL</name>
+		<url>http://www.sebrae.com.br</url>
+	</organization>
+
+	<parent>
+		<groupId>br.com.sebrae</groupId>
+		<artifactId>spring-boot-bom</artifactId>
+		<version>1.0.1</version>
+	</parent>
+
+	<properties>
+		<organization.name>SEBRAE NACIONAL</organization.name>
+		<organization.url>http://www.sebrae.com.br</organization.url>
+		<description>Search Service API</description>
+		<java.version>1.8</java.version>
+		<encoding>UTF-8</encoding>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<maven.compiler.version>3.7.0</maven.compiler.version>
+		<jacoco-maven-plugin.version>0.8.1</jacoco-maven-plugin.version>
+		<docker-maven.version>0.4.13</docker-maven.version>
+		<build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
+		<docker.image.prefix>docker-hosted.sebrae.com.br</docker.image.prefix>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<skipDockerBuild>false</skipDockerBuild>
+		<skipTests>false</skipTests>
+
+		<commons-lang3.version>3.7</commons-lang3.version>
+		<maven-model.version>3.5.3</maven-model.version>
+		<lombok.version>1.18.4</lombok.version>
+		<mapstruct.version>1.2.0.Final</mapstruct.version>
+		<hibernate-jpamodelgen.version>5.0.12.Final</hibernate-jpamodelgen.version>
+		<greenmail.version>1.5.7</greenmail.version>
+		<viglet.turing-sdk.version>aeb374a926</viglet.turing-sdk.version>
+		<swaggerVersion>3.0.0</swaggerVersion>
+		<jta.version>1.1</jta.version>
+
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.openturing</groupId>
+			<artifactId>turing-java-sdk</artifactId>
+			<version>${viglet.turing-sdk.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration combine.self="override">
+					<excludes>
+						<exclude>
+							<groupId>org.springframework.boot</groupId>
+							<artifactId>spring-boot-configuration-processor</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>repository.spring.release</id>
+			<name>Spring GA Repository</name>
+			<url>http://repo.spring.io/release</url>
+		</repository>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
+</project>
